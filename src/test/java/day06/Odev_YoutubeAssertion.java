@@ -42,7 +42,7 @@ public class Odev_YoutubeAssertion {
         String expectedTitle = "YouTube";
         String actuelTitle = driver.getTitle();
 
-        Assert.assertTrue(actuelTitle.equals(expectedTitle));
+        Assert.assertEquals(actuelTitle, expectedTitle);
     }
     @Test
     public void imageTest(){
@@ -55,6 +55,6 @@ public class Odev_YoutubeAssertion {
         // ○ wrongTitleTest => Sayfa basliginin “youtube” olmadigini dogrulayin
         String expectedTitle = "youtube";
         String actuelTitle = driver.getTitle();
-        Assert.assertFalse(expectedTitle.equals(actuelTitle));
+        Assert.assertNotEquals(expectedTitle,actuelTitle);
     }
 }
