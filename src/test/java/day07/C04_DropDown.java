@@ -19,7 +19,7 @@ public class C04_DropDown {
     public void setup() {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
-        driver.manage().window().maximize();
+        //driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
 
     }
@@ -36,10 +36,26 @@ public class C04_DropDown {
         WebElement ddm = driver.findElement(By.xpath("//*[@id='dropdown']"));
         Select select = new Select(ddm);
         select.selectByIndex(1);
+        //ddm.sendKeys("Option 1");
+        System.out.println(select.getFirstSelectedOption().getText());
         //Value kullanarak Seçenek 2'yi (Option 2) seçin ve yazdırın
+        select.selectByValue("2");
+        System.out.println(select.getFirstSelectedOption().getText());
+        System.out.println("=====================");
         //Visible Text(Görünen metin) kullanarak Seçenek 1’i (Option 1) seçin ve yazdırın
+        select.selectByVisibleText("Option 1");
+        System.out.println(select.getFirstSelectedOption().getText());
+        System.out.println("=====================");
         //Tüm dropdown değerleri(value) yazdırın
+        List<WebElement> tumDdm = select.getOptions();
+        tumDdm.forEach(t-> System.out.println(t.getText())); //Lambda ile yapim.
+        System.out.println("=====================");
         //Dropdown’un boyutunu bulun, Dropdown’da 4 öğe varsa konsolda True , degilse
         //False yazdırın.
+        System.out.println("DropDown Boyutu : "+tumDdm.size());
+        if (tumDdm.size()==4){
+            System.out.println("True");
+        }else System.out.println("False");
+        Assert.assertNotEquals(tumDdm.size(),4);
     }
 }
