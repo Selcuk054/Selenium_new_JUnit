@@ -39,7 +39,7 @@ public class Ddm_deneme {
     }
     @AfterClass
     public static void tearDown(){
-        //driver.quit();
+        driver.quit();
     }
     @Test
     public void test1(){
@@ -64,6 +64,8 @@ public class Ddm_deneme {
         WebElement result =driver.findElement(By.xpath("(//*[@class='a-section a-spacing-small a-spacing-top-small'])[1]"));
         System.out.println(result.getText());
         //4. Sonucun Java kelimesini icerdigini test edin
+        String expected = "Java";
+        Assert.assertTrue(result.getText().contains(expected));
     }
 
 
