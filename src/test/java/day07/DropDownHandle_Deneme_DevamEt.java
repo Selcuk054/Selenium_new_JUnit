@@ -1,7 +1,6 @@
 package day07;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -13,7 +12,7 @@ import org.openqa.selenium.support.ui.Select;
 
 import java.time.Duration;
 
-public class DropDownHandle_Deneme {
+public class DropDownHandle_Deneme_DevamEt {
    /* Bir class oluşturun: DropDown
 ● https://the-internet.herokuapp.com/dropdown adresine gidin.
     1.Index kullanarak Seçenek 1’i (Option 1) seçin ve yazdırın
@@ -41,8 +40,6 @@ public class DropDownHandle_Deneme {
         WebElement ddm = driver.findElement(By.xpath("//select[@id='dropdown']"));
         Select options=new Select(ddm);
         options.selectByIndex(0);
-
-
 
     }
 }
