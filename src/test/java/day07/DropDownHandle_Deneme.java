@@ -1,7 +1,6 @@
 package day07;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.apache.commons.io.IOExceptionWithCause;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -14,7 +13,7 @@ import org.openqa.selenium.support.ui.Select;
 import java.time.Duration;
 import java.util.List;
 
-public class DropDownHandle_Deneme_DevamEt {
+public class DropDownHandle_Deneme {
    /* Bir class oluşturun: DropDown
 ● https://the-internet.herokuapp.com/dropdown adresine gidin.
     1.Index kullanarak Seçenek 1’i (Option 1) seçin ve yazdırın

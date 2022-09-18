@@ -81,4 +81,8 @@ methodları kullanilir!!
         driver.switchTo().alert().dismiss();
         Assert.assertNotEquals(alertMsj,expectedMsj);
     }
+    @Test
+    public void test3(){
+
+    }
 }
