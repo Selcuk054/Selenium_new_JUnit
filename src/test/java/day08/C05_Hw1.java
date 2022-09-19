@@ -49,7 +49,7 @@ public class C05_Hw1 {
         WebElement box = driver.findElement(By.xpath("//*[@id='tinymce']"));
         box.sendKeys("Hallo Wereld");
 
-        //TextBox’in altinda bulunan “Elemental Selenium” linkini textinin gorunur oldugunu dogrulayinve konsoldayazdirin.
+        //TextBox’in altinda bulunan “Elemental Selenium” linkini textinin gorunur oldugunu dogrulayinve konsolda yazdirin.
         WebElement elemental = driver.findElement(By.xpath("//*[text()='Elemental Selenium']"));
         Assert.assertTrue(elemental.isDisplayed());
         System.out.println(elemental.getText());

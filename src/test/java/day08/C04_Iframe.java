@@ -10,6 +10,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.time.Duration;
+import java.util.ArrayList;
+import java.util.List;
 
 public class C04_Iframe {
     WebDriver driver;
@@ -27,10 +29,16 @@ public class C04_Iframe {
     @Test
     public void test1(){
         //Bu adrese gidiniz
-        driver.get("https://html.com/tags/iframe/");
         //Youtube videosunu calistiriniz
-        WebElement youtubeFrame = driver.findElement(By.xpath("//*[@src='https://www.youtube.com/embed/owsfdh4gxyc']"));
-        driver.switchTo().frame(youtubeFrame);
+        driver.get("https://html.com/tags/iframe/");
+        /*
+        Bir web sitesinde bir video varsa <Iframe > tag i icerisindeyse bu videoyu direkt locate edip
+        calistirmak dinamik olmaz cunku link degisebilir ve locate imiz calismaz.
+        Bunun icin butun frame leri bir array liste atip index ile framei secip sonrasida play
+        tusunu locate edip calistirabiliriz.
+         */
+        List<WebElement> iframeList= new ArrayList<>(driver.findElements(By.xpath("//iframe)")));
+        driver.switchTo().frame(iframeList.get(0));
         driver.findElement(By.xpath("(//*[@aria-label='Afspelen'])")).click();
 
 
