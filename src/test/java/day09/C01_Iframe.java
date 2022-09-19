@@ -43,10 +43,14 @@ public class C01_Iframe {
         WebElement textBoxframe = driver.findElement(By.xpath("//p"));
         textBoxframe.clear();//Clear methodu box in icini temizler.
         textBoxframe.sendKeys("Merhaba Dunya");
+        driver.switchTo().defaultContent(); // Iframe den cikip anasayfaya gecmek icin bu method kullanilir.
+
+        //        ○TextBox’in altinda bulunan “Elemental Selenium” linkini textinin gorunur oldugunu dogrulayin ve konsolda yazdirin.
+        WebElement elemental = driver.findElement(By.xpath("//*[text()='Elemental Selenium']"));
+        Assert.assertTrue(elemental.isDisplayed());
+        System.out.println(elemental.getText());
 
 
-        //        ○TextBox’in altinda bulunan “Elemental Selenium” linkini textinin gorunur oldugunu
-        //        dogrulayin ve konsolda yazdirin.
 
 
     }
