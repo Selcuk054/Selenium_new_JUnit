@@ -82,7 +82,15 @@ methodları kullanilir!!
         Assert.assertNotEquals(alertMsj,expectedMsj);
     }
     @Test
-    public void test3(){
+    public void test3() throws InterruptedException {
+        // 3. butona tıklayın, uyarıdaki metin kutusuna isminizi yazin,
+        // OK butonuna tıklayın ve result mesajında isminizin görüntülendiğini doğrulayın.
+        driver.findElement(By.xpath("//*[text()='Click for JS Prompt']")).click();
+        driver.switchTo().alert().sendKeys("Seltjoek Kardesh");
+        Thread.sleep(2000);
+        driver.switchTo().alert().accept();
+        WebElement name = driver.findElement(By.xpath("//*[text()='You entered: Seltjoek Kardesh']"));
+        Assert.assertTrue(name.isDisplayed());
 
     }
 }
