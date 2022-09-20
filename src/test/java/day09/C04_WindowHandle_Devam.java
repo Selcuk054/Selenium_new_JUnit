@@ -46,7 +46,14 @@ Bir önceki pencereye geri döndükten sonra sayfa başlığının “The Intern
         Assert.assertTrue(driver.getTitle().contains("The Internet"));
         //Click Here butonuna basın.
         driver.findElement(By.xpath("//*[text()='Click Here']")).click();
+        /*
+        Bir web sitesine girriginizde bir web elementi tikladiginizda yeni bir sekme yada pencere acilirsa
+        bu yeni acilan sekmenin handle degerini bulabilmek icin driver.getWindowHandles() methodunu bir ArrayList'e atip
+        butun sayfalarin listesine ulasabilirim. Ilk actigim pencerenin indexi sifirdir(0) ikinci acilan sekmenin index i 1 dir
+        ve ikinci acilan pencerede yada sekmede islem yapabilmek icin driver.switchTo().window(listAdi.get(1)) methodunu kullaniriz.
+         */
         List<String> windowList = new ArrayList<String>(driver.getWindowHandles());
+        System.out.println("Window Handle Degerleri = "+windowList);
         driver.switchTo().window(windowList.get(1));
 
         /*
@@ -59,9 +66,13 @@ Bir önceki pencereye geri döndükten sonra sayfa başlığının “The Intern
             }
         }
          */
-
         //Acilan yeni pencerenin sayfa başlığının (title) “New Window” oldugunu dogrulayin.
+        Assert.assertEquals(driver.getTitle(),"New Window");
         //Sayfadaki textin “New Window” olduğunu doğrulayın.
+        Assert.assertTrue(driver.findElement(By.xpath("//h3")).isDisplayed());
         //Bir önceki pencereye geri döndükten sonra sayfa başlığının “The Internet” olduğunu  doğrulayın.
+        driver.switchTo().window(windowList.get(0));
+        Assert.assertEquals("The Internet",driver.getTitle());
+
     }
 }
