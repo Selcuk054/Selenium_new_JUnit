@@ -7,6 +7,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import utilities.TestBaseBeforeAfter;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class C04_Actions extends TestBaseBeforeAfter {
     /*
 1-Yeni bir class olusturalim: MouseActions1
@@ -36,10 +39,14 @@ public class C04_Actions extends TestBaseBeforeAfter {
         //Tamam diyerek alert’i kapatalim
         driver.switchTo().alert().accept();
         //Elemental Selenium linkine tiklayalim
+        driver.findElement(By.xpath("//*[text()='Elemental Selenium']")).click();
+        List<String> windowlist = new ArrayList<String>(driver.getWindowHandles());
+        driver.switchTo().window(windowlist.get(1));
         //Acilan sayfada h1 taginda “Elemental Selenium” yazdigini test edelim
+        Assert.assertEquals("Elemental Selenium",driver.findElement(By.xpath("//h1")).getText());
     }
     }
 
 
 
-}
+
