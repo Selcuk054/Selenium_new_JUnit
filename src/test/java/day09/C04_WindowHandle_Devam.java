@@ -38,19 +38,23 @@ Bir önceki pencereye geri döndükten sonra sayfa başlığının “The Intern
     }
     @Test
     public void test1(){
-//https://the-internet.herokuapp.com/windows adresine gidin.
+        //https://the-internet.herokuapp.com/windows adresine gidin.
         driver.get("https://the-internet.herokuapp.com/windows");
+
         //Sayfadaki textin “Opening a new window” olduğunu doğrulayın.
         Assert.assertTrue(driver.findElement(By.xpath("//*[text()='Opening a new window']")).isDisplayed());
+
         //Sayfa başlığının(title) “The Internet” olduğunu doğrulayın.
         Assert.assertTrue(driver.getTitle().contains("The Internet"));
+
         //Click Here butonuna basın.
         driver.findElement(By.xpath("//*[text()='Click Here']")).click();
         /*
-        Bir web sitesine girriginizde bir web elementi tikladiginizda yeni bir sekme yada pencere acilirsa
+        Bir web sitesine girdiginizde bir web elementi tikladiginizda yeni bir sekme yada pencere acilirsa
         bu yeni acilan sekmenin handle degerini bulabilmek icin driver.getWindowHandles() methodunu bir ArrayList'e atip
-        butun sayfalarin listesine ulasabilirim. Ilk actigim pencerenin indexi sifirdir(0) ikinci acilan sekmenin index i 1 dir
-        ve ikinci acilan pencerede yada sekmede islem yapabilmek icin driver.switchTo().window(listAdi.get(1)) methodunu kullaniriz.
+        butun sayfalarin listesine ulasabilirim. Ilk actigim pencerenin indexi sifirdir(0) ikinci acilan sekmenin
+        index i 1 dir ve ikinci acilan pencerede yada sekmede islem yapabilmek icin driver.switchTo().window(listAdi.get(1))
+        methodunu kullaniriz.
          */
         List<String> windowList = new ArrayList<String>(driver.getWindowHandles());
         System.out.println("Window Handle Degerleri = "+windowList);

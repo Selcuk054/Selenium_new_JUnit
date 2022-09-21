@@ -6,7 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import utilities.TestBaseBeforeAfter;
 
-public class Practice extends TestBaseBeforeAfter {
+public class Practice_01 extends TestBaseBeforeAfter {
     /*
     //1-https://amazon.com sayfasına gidin
     //2-Sağ üst bölümde bulunan "Account & Lists" menüsünün açılması için
