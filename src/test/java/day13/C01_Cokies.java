@@ -43,8 +43,14 @@ public class C01_Cokies extends TestBaseBeforeAfter {
             System.out.println(sayac1 + ".ci value :" + w.getValue());
             sayac1 += 1;
             //6-eklediginiz cookie’nin sayfaya eklendigini test edin
+            Assert.assertTrue(tumCookie.contains(yeniCookie));
             //7-ismi skin olan cookie’yi silin ve silindigini test edin
+            driver.manage().deleteCookieNamed("skin");
+            Assert.assertFalse(tumCookie.contains("skin"));
             //8-tum cookie’leri silin ve silindigini test edin
+            driver.manage().deleteAllCookies();
+            tumCookie = driver.manage().getCookies();
+            Assert.assertTrue(tumCookie.isEmpty());
 
 
         }
