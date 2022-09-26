@@ -18,9 +18,9 @@ public class C01_Cokies extends TestBaseBeforeAfter {
         System.out.println(tumCookie);
         int sayac = 1;
         for (Cookie w : tumCookie) {
-            System.out.println(sayac + ".ci cookie :" + w);
-            System.out.println(sayac + ".ci name :" + w.getName());
-            System.out.println(sayac + ".ci value :" + w.getValue());
+            System.out.println(sayac + ". cookie :" + w);
+            System.out.println(sayac + ". name :" + w.getName());
+            System.out.println(sayac + ". value :" + w.getValue());
             sayac += 1;
         }
         //3-Sayfadaki cookies sayisinin 5’den buyuk oldugunu test edin
@@ -36,12 +36,13 @@ public class C01_Cokies extends TestBaseBeforeAfter {
         Cookie yeniCookie = new Cookie("en sevdigim cookie", "cikolatali");
         driver.manage().addCookie(yeniCookie);
         tumCookie = driver.manage().getCookies();
-        int sayac1 = 1;
+        sayac = 1;
         for (Cookie w : tumCookie) {
-            System.out.println(sayac1 + ".ci cookie :" + w);
-            System.out.println(sayac1 + ".ci name :" + w.getName());
-            System.out.println(sayac1 + ".ci value :" + w.getValue());
-            sayac1 += 1;
+            System.out.println(sayac + ".ci cookie :" + w);
+            System.out.println(sayac + ".ci name :" + w.getName());
+            System.out.println(sayac + ".ci value :" + w.getValue());
+            sayac++;
+        }
             //6-eklediginiz cookie’nin sayfaya eklendigini test edin
             Assert.assertTrue(tumCookie.contains(yeniCookie));
             //7-ismi skin olan cookie’yi silin ve silindigini test edin
@@ -57,4 +58,3 @@ public class C01_Cokies extends TestBaseBeforeAfter {
 
 
     }
-}
