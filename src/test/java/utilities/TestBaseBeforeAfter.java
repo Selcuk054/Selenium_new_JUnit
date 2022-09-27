@@ -10,11 +10,15 @@ import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 
 import java.time.Duration;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class TestBaseBeforeAfter {
 
     protected WebDriver driver;
     protected Actions action;
+    protected String tarih;
 
     @Before
     public void setUp(){
@@ -22,6 +26,9 @@ public class TestBaseBeforeAfter {
         driver = new ChromeDriver();
         action = new Actions(driver);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+        LocalDateTime date = LocalDateTime.now();
+        DateTimeFormatter formatter= DateTimeFormatter.ofPattern("YY-MM-dd-HH:mm:ss");
+        tarih=date.format(formatter);
 
     }
 
